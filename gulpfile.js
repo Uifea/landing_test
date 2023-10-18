@@ -1,5 +1,6 @@
 const {src, dest} = require('gulp');
-const gulp = require('gulp')
+const gulp = require('gulp');
+const ghPages = require('gulp-gh-pages');
 const scss = require('gulp-sass')(require('sass'));
 const cssbeatify = require('gulp-cssbeautify');
 const cssnano = require('gulp-cssnano');
@@ -159,10 +160,15 @@ function watchfiles() {
     gulp.watch([path.watch.fonts], fonts)
 }
 
+
+
 const build = gulp.series(clean, gulp.parallel(html, styles, scripts, img, fonts))
 const watch = gulp.parallel(build, watchfiles, serve)
 
-
+function deploy() {
+    return src('./dist/**/*')
+        .pipe(ghPages());
+}
 
 exports.styles = styles;
 exports.scripts = scripts;
@@ -170,6 +176,7 @@ exports.html = html;
 exports.img = img;
 exports.fonts = fonts;
 exports.clean = clean;
+exports.deploy = deploy;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;
