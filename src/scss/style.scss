@@ -538,6 +538,7 @@ body {
         position: absolute;
         list-style: none;
         box-shadow: 0px 8px 60px 0px rgba(0, 0, 0, 0.07);
+        z-index: 10;
     }
 
     &__item {
