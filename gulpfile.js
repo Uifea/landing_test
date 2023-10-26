@@ -30,6 +30,7 @@ const path = {
     src: {
         html: srcPath + "*.html",
         css: srcPath + "scss/**/*.scss",
+        cssNormalize: srcPath + "scss/**/normalize.css",
         js: srcPath + "js/*.js",
         images: srcPath + "images/**/*.{jpeg,jpg,png,svg,gif,ico,webp}",
         fonts: srcPath + "fonts/**/*.{eot,woff,woff2,ttf,svg}"
@@ -92,6 +93,12 @@ function scripts() {
             extname: ".js"
         }))
         .pipe(dest(path.build.js))
+        .pipe(browserSync.stream());
+}
+
+function normalize() {
+    return src(path.src.cssNormalize, {base: srcPath + "scss/"})
+        .pipe(dest(path.build.css))
         .pipe(browserSync.stream());
 }
 
@@ -162,7 +169,7 @@ function watchfiles() {
 
 
 
-const build = gulp.series(clean, gulp.parallel(html, styles, scripts, img, fonts))
+const build = gulp.series(clean, gulp.parallel(html, styles, scripts, img, fonts, normalize))
 const watch = gulp.parallel(build, watchfiles, serve)
 
 function deploy() {

@@ -34,8 +34,17 @@ body {
     background-color: #2D1AA7;
     color: #fff;
     border-radius: 100px;
-    border: none;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #2D1AA7;
+    font-weight: 500;
+
+    &:hover {
+        
+        background-color: #fff;
+        color: #2D1AA7;
+        
+    }
 }
 
 @mixin title ($size, $line, $space, $weight:500){
@@ -228,6 +237,7 @@ body {
 }
 
 .hero {
+    
     padding-bottom: 80px;
     border-bottom: 2px solid #ECECF3;
 
@@ -235,6 +245,40 @@ body {
         @include title(52px, 48px, -1.04px, 600);
         margin: 0;
         margin-bottom: 37px;
+    }
+
+    &__banner {
+        position: relative;
+    }
+
+    &__date {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        top: 16px;
+        right: 46px;
+        width: 112px;
+        height: 100px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.90);
+
+        &--day {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 25px;
+            margin-bottom: 10px;
+        }
+
+        &--month {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 25px;
+            &::first-letter {
+                text-transform: uppercase;
+            }
+        }
     }
 }
 
@@ -350,6 +394,9 @@ body {
     &__textarea {
         grid-column-start: 1;
         grid-column-end: 4;
+        
+
+        
     }
 
     &__btn {
@@ -360,6 +407,20 @@ body {
         cursor: pointer;
     }
 
+    &__container {
+        position: relative;
+    }
+
+    &__label {
+        position: absolute;
+        top: 14px;
+        left: 16px;
+        font-size: 14px;
+        font-family: 'Onest';
+        color: #777777;
+        transition: all 0.3s ease-in-out;
+    }
+
     &__input {
         font-size: 14px;
         line-height: 15px;
@@ -367,13 +428,44 @@ body {
         border: 1px solid #EDEDF1;
         background-color: #fff;
         padding: 17px 15px 18px;
+        width: -webkit-fill-available;
 
         &:focus {
             border: 1px solid #2D1AA7;
             outline: none;
         }
+
+        &:focus + .form__label {
+            top: 5px;
+            font-size: 9px;
+            line-height: 14px;
+        }
+
+        &:not(:placeholder-shown) + .form__label {
+            top: 5px;
+            font-size: 9px;
+            line-height: 14px;
+        }
+
+        &::placeholder {
+            font-size: 0;
+        }
+
+        &--textarea {
+            width: 100%;
+            resize: none;
+            width: -webkit-fill-available;
+
+            &::placeholder {
+                font-size: 0;
+                font-family: 'Onest';
+                color: #777777;
+            }
+        }
         
     }
+
+    
 }
 
 .rating {
@@ -438,6 +530,7 @@ body {
     }
 
     &__body {
+        width: 100%;
         display: none;
         border-radius: 6px;
         padding-left: 0;
@@ -546,6 +639,7 @@ body {
         font-weight: 500;
         line-height: 22px;
         margin-right: 5px;
+        cursor: pointer;
     }
 
 }
@@ -606,6 +700,10 @@ body {
 
     .blockquote__icon {
         left: 10px;
+    }
+
+    .select__item {
+        white-space: normal;
     }
 }
 
@@ -707,6 +805,10 @@ body {
 
     .hero__title {
         font-size: 46px;
+    }
+
+    .hero__date {
+        display: none;
     }
 
     .server-js__title {

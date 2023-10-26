@@ -4,6 +4,24 @@ let navList = document.querySelector('.site-list');
 menuButton.addEventListener('click', () => {
     navList.classList.toggle('active');
 })
+
+let date = new Date();
+let dateDay = document.querySelector('.hero__date--day');
+let dateMonth = document.querySelector('.hero__date--month');
+
+let optionsDateDay = {
+    day: 'numeric'
+}
+
+let optionsDateMonth = {
+    month: 'long'
+}
+
+dateDay.textContent = date.toLocaleString('ru-RU', optionsDateDay);
+dateMonth.textContent = date.toLocaleString('ru-RU', optionsDateMonth);
+
+
+// heroDate.textContent = ;
 let modalWindow = document.querySelector('.modal');
 let modalBtnOpen = document.querySelector('.modal-open');
 let modalBtnClose = modalWindow.querySelector('.modal__close');
@@ -78,26 +96,25 @@ radioButtons.forEach(item => {
     } )
 })
 let select = function() {
-    let selectHeaders = document.querySelectorAll('.select__header');
+    let selectHeaders = document.querySelector('.select__header');
     let selectItem = document.querySelectorAll('.select__item');
+    let select = document.querySelector('.select');
+    let selectBody = document.querySelector('.select__body');
+    let currentText = select.querySelector('.select__current');
 
-    let selectToggle = function (item) {
-        item.parentElement.classList.toggle('select__active');
+    let selectToggle = function () {
+        select.classList.toggle('select__active');
     }
 
     let selectChoose = function(item) {
         let text = item.innerText;
-        let select = item.closest('.select');
-        let currentText = select.querySelector('.select__current');
         currentText.innerText = text;
         currentText.classList.add('select__current--new')
         select.classList.remove('select__active');
     }
 
-    selectHeaders.forEach(item => {
-        item.addEventListener('click', () => {
-            selectToggle(item);
-        })
+    selectHeaders.addEventListener('click', () => {
+        selectToggle();
     })
 
     selectItem.forEach(item => {
@@ -106,7 +123,11 @@ let select = function() {
         })
     })
 
-    
+    document.addEventListener('click', (e) => {
+        if(e.target !== selectHeaders && e.target !== selectBody && e.target !== currentText ) {
+            select.classList.remove('select__active');
+        }
+    })
 
 }
 select();
