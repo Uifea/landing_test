@@ -47,8 +47,14 @@
                 <span class="modal__close"></span>
                 <p class="modal__info">Оставьте заявку и наш менеджер вам перезвонит.</p>
                 <form class="modal__form">
-                    <input type="text" class="form__input" placeholder="Как вас зовут">
-                    <input type="email" class="form__input" placeholder="Ваш email">
+                    <div class="form__container">
+                        <input type="text" class="form__input" placeholder="Как вас зовут" id="modal-name">
+                        <label for="modal-name" class="form__label">Как вас зовут</label>
+                    </div>
+                    <div class="form__container">
+                        <input type="email" class="form__input" placeholder="Ваш email" id="modal-email">
+                        <label for="modal-email" class="form__label">Ваш email</label>
+                    </div>
                     <input type="submit" value="Отправить" class="modal__form-btn btn">
                 </form>
                 <p class="modal__confid">Нажимая кнопку «Отправить», вы соглашаетесь с <a href="">политикой конфиденциальности</a></p>
@@ -61,6 +67,10 @@
             <div class="hero__container">
                 <div class="hero__banner">
                     <img src="images/books-desktop.png" alt="Книги" class="hero__img">
+                    <div class="hero__date">
+                        <span class="hero__date--day"></span>
+                        <span class="hero__date--month"></span>
+                    </div>
                 </div>
                 <p class="hero__info">Можно выделить три основных направления для прогресса JavaScript </p>
             </div>
@@ -114,8 +124,14 @@
                         Добавить комментарий к книге
                     </p>
                     <div class="form__wrapper">
-                        <input type="text" class="form__input form__name" placeholder="Имя">
-                        <input type="email" class="form__input form__email" placeholder="Email">
+                        <div class="form__container form__name">
+                            <input type="text" class="form__input" id="name" placeholder="Имя">
+                            <label for="name" class="form__label">Имя</label>
+                        </div>
+                        <div class="form__container form__email">
+                            <input type="email" class="form__input " id="email" placeholder="Email">
+                            <label for="email" class="form__label">Email</label>
+                        </div>
                         <div class="select form__input">
                             <div class="select__header">
                                 <span class="select__current">Выберите книгу</span>
@@ -128,7 +144,10 @@
                                 <li class="select__item">Выразительный JavaScript</li>
                             </ul>
                         </div>
-                        <textarea name="form-text" id="form-text" cols="30" rows="8" class="form__textarea form__input" placeholder="Ваш отзыв"></textarea>
+                        <div class="form__container form__textarea">
+                            <textarea name="form-text" id="form-text" cols="30" rows="8" class="form__input form__input--textarea" id="form-text" placeholder="Ваш отзыв"></textarea>
+                            <label for="form-text" class="form__label">Ваш отзыв</label>
+                        </div>
                         <input type="submit" value="Отправить" class="form__btn btn">
                     </div>
                 </form>

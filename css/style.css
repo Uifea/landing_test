@@ -32,8 +32,16 @@ body {
     background-color: #2D1AA7;
     color: #fff;
     border-radius: 100px;
-    border: none;
     cursor: pointer;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid #2D1AA7;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #2D1AA7;
 }
 
 .header-page {
@@ -270,6 +278,50 @@ body {
     margin-bottom: 37px;
 }
 
+.hero__banner {
+    position: relative;
+}
+
+.hero__date {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    top: 16px;
+    right: 46px;
+    width: 112px;
+    height: 100px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.hero__date--day {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 25px;
+    margin-bottom: 10px;
+}
+
+.hero__date--month {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+.hero__date--month::first-letter {
+    text-transform: uppercase;
+}
+
 .server-js {
     position: relative;
     padding-bottom: 80px;
@@ -409,6 +461,21 @@ body {
     cursor: pointer;
 }
 
+.form__container {
+    position: relative;
+}
+
+.form__label {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    font-size: 14px;
+    font-family: "Onest";
+    color: #777777;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
 .form__input {
     font-size: 14px;
     line-height: 15px;
@@ -416,11 +483,92 @@ body {
     border: 1px solid #EDEDF1;
     background-color: #fff;
     padding: 17px 15px 18px;
+    width: -webkit-fill-available;
 }
 
 .form__input:focus {
     border: 1px solid #2D1AA7;
     outline: none;
+}
+
+.form__input:focus + .form__label {
+    top: 5px;
+    font-size: 9px;
+    line-height: 14px;
+}
+
+.form__input:not(:-moz-placeholder-shown) + .form__label {
+    top: 5px;
+    font-size: 9px;
+    line-height: 14px;
+}
+
+.form__input:not(:-ms-input-placeholder) + .form__label {
+    top: 5px;
+    font-size: 9px;
+    line-height: 14px;
+}
+
+.form__input:not(:placeholder-shown) + .form__label {
+    top: 5px;
+    font-size: 9px;
+    line-height: 14px;
+}
+
+.form__input::-webkit-input-placeholder {
+    font-size: 0;
+}
+
+.form__input::-moz-placeholder {
+    font-size: 0;
+}
+
+.form__input:-ms-input-placeholder {
+    font-size: 0;
+}
+
+.form__input::-ms-input-placeholder {
+    font-size: 0;
+}
+
+.form__input::placeholder {
+    font-size: 0;
+}
+
+.form__input--textarea {
+    width: 100%;
+    resize: none;
+    width: -webkit-fill-available;
+}
+
+.form__input--textarea::-webkit-input-placeholder {
+    font-size: 0;
+    font-family: "Onest";
+    color: #777777;
+}
+
+.form__input--textarea::-moz-placeholder {
+    font-size: 0;
+    font-family: "Onest";
+    color: #777777;
+}
+
+.form__input--textarea:-ms-input-placeholder {
+    font-size: 0;
+    font-family: "Onest";
+    color: #777777;
+}
+
+.form__input--textarea::-ms-input-placeholder {
+    font-size: 0;
+    font-family: "Onest";
+    color: #777777;
+}
+
+.form__input--textarea::placeholder {
+    font-size: 0;
+    font-family: "Onest";
+    color: #777777;
 }
 
 .rating {
@@ -490,6 +638,7 @@ body {
 }
 
 .select__body {
+    width: 100%;
     display: none;
     border-radius: 6px;
     padding-left: 0;
@@ -613,6 +762,7 @@ body {
     font-weight: 500;
     line-height: 22px;
     margin-right: 5px;
+    cursor: pointer;
 }
 
 .swiper-pagination {
@@ -672,6 +822,10 @@ body {
 
     .blockquote__icon {
         left: 10px;
+    }
+
+    .select__item {
+        white-space: normal;
     }
 }
 
@@ -773,6 +927,10 @@ body {
 
     .hero__title {
         font-size: 46px;
+    }
+
+    .hero__date {
+        display: none;
     }
 
     .server-js__title {
